@@ -1,1 +1,1 @@
-[点击看打包后的，因跨域无法请求](https://lanhits.github.io/Vue/dist)，
+[点击看打包后的，因跨域无法请求，但登录接口和其他功能正常，如需体验完整功能请下载未打包项目并安装依赖运行](https://lanhits.github.io/Vue/dist)
