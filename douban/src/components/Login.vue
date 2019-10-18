@@ -39,8 +39,7 @@ export default {
       login(this.userName, this.passWord).then(response => {
         Cookie.set('userName', this.userName)
         this.$router.push({
-          path: '/index',
-          name: 'index'
+          path: '/index'
         })
         this.islogin = false
       }).catch(() => {

@@ -3,7 +3,7 @@
     <header>详情</header>
     <ret @ret="ret"></ret>
     <div id="topkong"></div>
-    <ul v-show="isShow">
+    <ul v-if="isShow">
       <li class="mian">
         <img :src="one.images.small">
         <h3>{{one.title}}</h3>
@@ -53,17 +53,14 @@ const vm = {
       isShow: false
     }
   },
-  watch: {
-    $route (val) {
-      // 进来是进行数据请求 完成后展示页面
-      if (val.params.i) {
-        reqmovies({
-          url: '/subject/' + val.params.i
-        }).then((data) => {
-          this.one = data
-          this.isShow = true
-        })
-      }
+  created () {
+    if (this.$route.params.i) {
+      reqmovies({
+        url: '/subject/' + this.$route.params.i
+      }).then((data) => {
+        this.one = data
+        this.isShow = true
+      })
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -80,6 +77,7 @@ const vm = {
   methods: {
     want (one) {
       // 想看的收藏触发数据修改
+      alert(1)
       this.$store.commit('want', {[one.id]: one})
     },
     watched (one) {

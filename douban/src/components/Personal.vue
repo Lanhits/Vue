@@ -39,22 +39,9 @@ export default {
       watchCount: 0
     }
   },
-  watch: {
-    $route () {
-      this.wantCount = Object.keys(this.$store.state.want).length
-      this.watchCount = Object.keys(this.$store.state.watched).length
-      if (!Cookie.get('userName')) {
-        this.$router.push({
-          path: '/',
-          name: 'login'
-        })
-      } else {
-        this.userName = Cookie.get('userName')
-        this.islogin = true
-      }
-    }
-  },
   created () {
+    this.wantCount = Object.keys(this.$store.state.want).length
+    this.watchCount = Object.keys(this.$store.state.watched).length
     if (!Cookie.get('userName')) {
       this.$router.push({
         path: '/',

@@ -42,7 +42,6 @@ export default {
   watch: {
     $route (to, from) {
       this.transitionName = to.meta.index > from.meta.index ? 'slide-left' : 'slide-right'
-      console.log(this.$route)
       this.changeIndex(to.meta)
       this.wantCount = Object.keys(this.$store.state.want).length
       this.watchCount = Object.keys(this.$store.state.watched).length
@@ -67,6 +66,8 @@ export default {
       this.userName = Cookie.get('userName')
       this.islogin = true
     }
+    this.routerName = this.$route.meta.name
+    this.changeIndex(this.$route.meta)
   },
   methods: {
     go (val) {

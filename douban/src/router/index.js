@@ -24,7 +24,7 @@ const router = new Router({
       component: Index,
       children: [
         {
-          path: '/index/',
+          path: '/index',
           name: 'person',
           meta: {index: 0, name: '首页'},
           component: Personal
@@ -50,12 +50,12 @@ const router = new Router({
       ]
     },
     {
-      path: ':i',
+      path: '/:i',
       name: 'det',
       component: Det
     },
     {
-      path: ':which',
+      path: '/index/:which',
       name: 'collect',
       component: Collection
     }

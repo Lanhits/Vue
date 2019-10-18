@@ -4,9 +4,9 @@
     <ret @ret="ret"></ret>
     <div id="topkong"></div>
     <onecollect v-for="(item, key) in list" :one="item" :key="key"></onecollect>
+    <div v-show="!!list">暂无数据</div>
   </section>
 </template>
-
 <script>
 import onecollect from '@/comptpublic/Onecollect'
 import ret from '@/comptpublic/Return'
@@ -25,12 +25,10 @@ export default {
       which: ''
     }
   },
-  watch: {
-    $route () {
-      this.list = {}
-      Object.assign(this.list, this.$store.state[this.$route.params.which])
-      this.which = this.$route.params.which
-    }
+  created () {
+    this.list = {}
+    Object.assign(this.list, this.$store.state[this.$route.params.which])
+    this.which = this.$route.params.which
   },
   beforeRouteEnter (to, from, next) {
     retHash = from.path
